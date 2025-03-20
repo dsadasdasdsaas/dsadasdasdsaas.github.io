@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>саунд тег by vsenikizanyati</title>
+    <style>
+        body {
+            background-color: #212020;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            cursor: pointer;
+        }
+        img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body onclick="playMusic()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Yandex_Music_icon.svg/512px-Yandex_Music_icon.svg.png" alt="Яндекс Музыка">
+    <audio id="music" src="music.mp3"></audio>
+
+    <script>
+        let music = document.getElementById('music');
+
+        function playMusic() {
+            music.play();
+        }
+
+        // Повторяем музыку после окончания
+        music.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        });
+    </script>
+</body>
+</html>
